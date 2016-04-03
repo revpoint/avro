@@ -553,13 +553,11 @@ class TestSchema(unittest.TestCase):
     "precision": 4}""", True)
 
     fixed_decimal = schema.parse(fixed_decimal_schema.schema_string)
-    self.assertEqual('decimal', fixed_decimal.get_prop('logicalType'))
     self.assertEqual(4, fixed_decimal.get_prop('precision'))
     self.assertEqual(2, fixed_decimal.get_prop('scale'))
     self.assertEqual(2, fixed_decimal.get_prop('size'))
 
     bytes_decimal = schema.parse(bytes_decimal_schema.schema_string)
-    self.assertEqual('decimal', bytes_decimal.get_prop('logicalType'))
     self.assertEqual(4, bytes_decimal.get_prop('precision'))
     self.assertEqual(0, bytes_decimal.get_prop('scale'))
 
